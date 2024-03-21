@@ -1,0 +1,103 @@
+:root{
+    --electric-indigo: #5906f2;
+    --dark-purple: #0D0221;
+    --flourescent-cyan: #0BF2EA;
+    --jonquil: #F9C80E;
+    --rose: #FF007F;
+}
+/* *{
+    border: 1px solid red;
+} */
+
+body{
+    font-family: 'Roboto';
+    font-size: 18px;
+    color: white;
+    background-color: var(--dark-purple);
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    width: 100%;
+    background-color: var(--jonquil);
+}
+
+header h1{
+    font-size: 64px;
+    margin-block: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    position: sticky;
+    overflow: hidden;
+}
+
+#centered-content{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: space-around; 
+    margin-top: 48px;
+}
+
+#centered-content h2{
+    width: 80%;
+    height: 48px;
+    background-color: #5906f2;
+    margin-block: 0;
+    padding-top: 16px;
+}
+
+#image-grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 24px;
+    column-gap: 12px;
+    width: 80%;
+    background-color: white;
+    padding: 16px 0;
+}
+
+.caption-image{
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    align-items: center;
+    margin: 4px;
+}
+
+.caption-image img{
+    width: 100%;
+    height: auto;
+}
+
+.caption-image h3{
+    width: 100%;
+    margin-block: 0;
+    color: var(--rose);
+}
+
+.caption-image:hover{
+    border: 4px solid var(--rose);
+    margin: 0;
+}
+
+#horoscope{
+    display: none;
+    background-color: white;
+    color: var(--rose);
+    width: 50%;
+}
+
+#horoscope h2{
+    background-color: var(--electric-indigo);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    padding: 10px 4px;
+}
+
+#horoscope ul{
+    padding: 12px;
+}

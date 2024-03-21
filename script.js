@@ -1,74 +1,57 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
-// User Registration 
-import firebase from 'firebase';
+const star_signs = ['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'];
 
-const RegisterScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const controller = new AbortController();
 
-  const handleRegister = () => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Handle successful registration
-        console.log('User registered successfully');
-      })
-      .catch((error) => {
-        // Handle registration errors
-        console.error(error);
-      });
-  };
+// Keeps track of the user's star sign
+let user_sign = "";
 
-  return (
-    <View>
-      <Text>Email:</Text>
-      <TextInput value={email} onChangeText={setEmail} />
-      <Text>Password:</Text>
-      <TextInput value={password} onChangeText={setPassword} secureTextEntry />
-      <Button title="Register" onPress={handleRegister} />
-    </View>
-  );
-};
+function createRandomMessage(starSign){
 
-export default RegisterScreen;
+    const messageOptions = {
+        luckyNum : Math.floor(Math.random() * 100),
+        getLuckyNumber(){
+            return this.luckyNum;
+        },
+        day: ['fortuitous', 'unlucky', 'fruitful', 'chaotic', 'unpredictable', 'challenging', 'rewarding'],
+        getDay(){
+            return this.day[Math.floor(Math.random() * this.day.length)];
+        },
+        improvement: ['improvements', 'no change', 'a decline'],
+        getImprovement(){
+            return this.improvement[Math.floor(Math.random() * this.improvement.length)];
+        },
+        aspect: ['romantic life', 'financial status', 'family life', 'sexual health', 'mental health', 'occupational environment'],
+        getAspect(){
+            return this.aspect[Math.floor(Math.random() * this.aspect.length)];
+        }
+    };
+    
 
-// Messaging Functionality (using Firebase Realtime Database)
-import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
-import firebase from 'firebase';
+    let h2 = document.createElement('h2');
+    h2.append(`${starSign}'s Daily Horoscope`);
+    let ul = document.createElement('ul');
+    let dailyMessage = document.createElement('li');
+    dailyMessage.append(`Daily Message:\t\tYou will have a ${messageOptions.getDay()} day today.`);
+    let prospects = document.createElement('li');
+    prospects.append(`Future Prospects:\t\tYou will see ${messageOptions.getImprovement()} in your ${messageOptions.getAspect()}`);
+    let luckyNumber = document.createElement('li');
+    luckyNumber.append(`Lucky Number:\t\tYour lucky number today is ${messageOptions.getLuckyNumber()}`);
 
-const ChatScreen = () => {
-  const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([]);
+    ul.append(dailyMessage, prospects, luckyNumber);
 
-  useEffect(() => {
-    const messageRef = firebase.database().ref('messages');
-    messageRef.on('value', (snapshot) => {
-      const messageList = snapshot.val();
-      setMessages(messageList);
-    });
-  }, []);
+    document.getElementById('horoscope').append(h2, ul);
+}
 
-  const handleSendMessage = () => {
-    firebase.database().ref('messages').push({
-      text: message,
-      sender: firebase.auth().currentUser.uid,
-      timestamp: Date.now()
-    });
-    setMessage('');
-  };
-
-  return (
-    <View>
-      {messages.map((msg) => (
-        <Text key={msg.timestamp}>{msg.text}</Text>
-      ))}
-      <TextInput value={message} onChangeText={setMessage} />
-      <Button title="Send" onPress={handleSendMessage} />
-    </View>
-  );
-};
-
-export default ChatScreen;
-
-
+star_signs.forEach((Sign)=>{
+    let sign = Sign.toLowerCase();
+    let elem = document.getElementById(sign);
+    elem.addEventListener("click", () => {
+        user_sign = Sign;
+        console.log(Sign);
+        document.getElementById("centered-content").style.display = "none";
+        document.getElementById("horoscope").style.display = "block";
+        createRandomMessage(Sign);
+        controller.abort();
+    },
+    {signal: controller.signal});
+});
