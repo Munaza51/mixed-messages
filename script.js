@@ -1,7 +1,7 @@
 const star_signs = ['Munaza', 'Hela', 'Sadaf', 'Khatira', 'Leo', 'Zuhra', 'Shamsia', 'Anosh', 'Yalda', 'Mariam', 'Darya', 'Fatima'];
 const controller = new AbortController();
 let user_sign = "";
- 
+
 function createRandomMessage(starSign) {
     const messageOptions = {
         luckyNum: Math.floor(Math.random() * 100),
@@ -34,7 +34,7 @@ function createRandomMessage(starSign) {
 }
 
 star_signs.forEach((sign) => {
-    const elem = document.getElementById(sign.toLowerCase());
+    const elem = document.getElementById(sign);
     elem.addEventListener('click', () => {
         user_sign = sign;
         document.getElementById('centered-content').style.display = 'none';
