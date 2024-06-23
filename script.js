@@ -1,7 +1,7 @@
-const star_signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
+const star_signs = ['Munaza', 'Hela', 'Sadaf', 'Khatira', 'Leo', 'Zuhra', 'Shamsia', 'Anosh', 'Yalda', 'Mariam', 'Darya', 'Fatima'];
 const controller = new AbortController();
 let user_sign = "";
-
+ 
 function createRandomMessage(starSign) {
     const messageOptions = {
         luckyNum: Math.floor(Math.random() * 100),
