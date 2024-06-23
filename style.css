@@ -54,10 +54,10 @@ header h1 {
 
 #image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
     gap: 16px;
-    width: 80%;
-    max-width: 1200px;
+    width: 60%; /* Adjust the width to center the grid */
+    max-width: 800px;
     padding: 16px;
     background-color: var(--deep-space-sparkle);
     border-radius: 10px;
