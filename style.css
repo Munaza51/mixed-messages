@@ -1,103 +1,130 @@
-:root{
+:root {
     --electric-indigo: #5906f2;
     --dark-purple: #0D0221;
-    --flourescent-cyan: #0BF2EA;
+    --fluorescent-cyan: #0BF2EA;
     --jonquil: #F9C80E;
     --rose: #FF007F;
+    --deep-space-sparkle: #4A4E69;
+    --french-sky-blue: #4FC3F7;
+    --mint-cream: #F5FFFA;
 }
-/* *{
-    border: 1px solid red;
-} */
 
-body{
-    font-family: 'Roboto';
+body {
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
-    color: white;
+    color: var(--mint-cream);
     background-color: var(--dark-purple);
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
-header{
+header {
     width: 100%;
     background-color: var(--jonquil);
+    text-align: center;
+    padding: 20px 0;
 }
 
-header h1{
+header h1 {
     font-size: 64px;
-    margin-block: 0;
+    margin: 0;
     font-family: 'Bebas Neue', sans-serif;
-    position: sticky;
-    overflow: hidden;
+    color: var(--dark-purple);
+    letter-spacing: 2px;
 }
 
-#centered-content{
+#centered-content {
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-    align-items: space-around; 
+    flex-direction: column;
+    align-items: center;
     margin-top: 48px;
 }
 
-#centered-content h2{
-    width: 80%;
-    height: 48px;
-    background-color: #5906f2;
-    margin-block: 0;
-    padding-top: 16px;
-}
-
-#image-grid{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    row-gap: 24px;
-    column-gap: 12px;
-    width: 80%;
-    background-color: white;
-    padding: 16px 0;
-}
-
-.caption-image{
-    display: flex;
-    flex-wrap: wrap;
-    width: 95%;
-    align-items: center;
-    margin: 4px;
-}
-
-.caption-image img{
-    width: 100%;
-    height: auto;
-}
-
-.caption-image h3{
-    width: 100%;
-    margin-block: 0;
-    color: var(--rose);
-}
-
-.caption-image:hover{
-    border: 4px solid var(--rose);
-    margin: 0;
-}
-
-#horoscope{
-    display: none;
-    background-color: white;
-    color: var(--rose);
-    width: 50%;
-}
-
-#horoscope h2{
+#centered-content h2 {
     background-color: var(--electric-indigo);
-    color: white;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 32px;
+    font-size: 24px;
+    color: var(--mint-cream);
+    text-shadow: 2px 2px var(--deep-space-sparkle);
+    animation: fadeIn 2s;
+}
+
+#image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    width: 80%;
+    max-width: 1200px;
+    padding: 16px;
+    background-color: var(--deep-space-sparkle);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.caption-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s, border 0.3s;
+}
+
+.caption-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.caption-image h3 {
+    margin-top: 8px;
+    color: var(--french-sky-blue);
+    font-size: 20px;
+}
+
+.caption-image:hover {
+    transform: scale(1.05);
+    border: 3px solid var(--rose);
+}
+
+#horoscope {
+    display: none;
+    background-color: var(--mint-cream);
+    color: var(--dark-purple);
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s;
+}
+
+#horoscope h2 {
+    background-color: var(--electric-indigo);
+    color: var(--mint-cream);
     font-family: 'Bebas Neue', sans-serif;
     font-size: 36px;
     padding: 10px 4px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-#horoscope ul{
+#horoscope ul {
     padding: 12px;
+    list-style-type: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
