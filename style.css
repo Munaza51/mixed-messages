@@ -13,7 +13,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     color: var(--mint-cream);
-    background-image: url('https://i.makeagif.com/media/6-14-2017/lF44-a.gif'); /* Background image URL */
+    background-image: url('https://preview.redd.it/vupgcqy3vki81.gif?width=640&crop=smart&auto=webp&s=af758b38568b85f2598520e07a333cfd2e603298'); /* Background image URL */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -24,16 +24,17 @@ body {
 
 header {
     width: 100%;
-    background-color: var(--jonquil);
     text-align: center;
     padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Dark shadow background */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
 }
 
 header h1 {
     font-size: 64px;
     margin: 0;
     font-family: 'Bebas Neue', sans-serif;
-    color: var(--dark-purple);
+    color: var(--jonquil);
     letter-spacing: 2px;
 }
 
@@ -53,11 +54,13 @@ header h1 {
     color: var(--mint-cream);
     text-shadow: 2px 2px var(--deep-space-sparkle);
     animation: fadeIn 2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Dark shadow background */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
 }
 
 #image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Two columns layout */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjusted to fit smaller images */
     gap: 16px;
     width: 80%;
     max-width: 1200px;
@@ -76,8 +79,7 @@ header h1 {
 }
 
 .caption-image img {
-    width: 100%;
-    max-width: 150px; /* Set a maximum width for the images to make them smaller */
+    width: 100px; /* Set a fixed smaller width for the images */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
